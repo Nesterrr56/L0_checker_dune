@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Open Ledger — Блог про блокчейн</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">Open Ledger</div>
+    <nav class="nav-links">
+      <a href="#composer">Написати</a>
+      <a href="#posts">Пости</a>
+      <a href="#about">Про блог</a>
+    </nav>
+    <a class="cta" href="#composer">Опублікувати</a>
+  </header>
+
+  <main>
+    <section class="hero" id="about">
+      <div class="hero__content">
+        <p class="eyebrow">Блог спільноти</p>
+        <h1>Діліться своїми ідеями про крипто та веб3.</h1>
+        <p class="subtitle">Легкий інтерфейс для швидкої публікації постів, пошуку матеріалів та роботи з чернетками.</p>
+        <div class="hero__actions">
+          <a class="primary" href="#composer">Створити пост</a>
+          <a class="ghost" href="#posts">Переглянути останнє</a>
+        </div>
+        <dl class="metrics">
+          <div>
+            <dt>Сьогоднішні читачі</dt>
+            <dd id="metric-readers">2 184</dd>
+          </div>
+          <div>
+            <dt>Опубліковано</dt>
+            <dd id="metric-posts">0</dd>
+          </div>
+          <div>
+            <dt>Чернетки</dt>
+            <dd id="metric-drafts">7</dd>
+          </div>
+        </dl>
+      </div>
+      <div class="hero__panel">
+        <p class="panel__title">Лаконична платформа без зайвих налаштувань.</p>
+        <ul class="panel__list">
+          <li>Зберігаємо пости локально у вашому браузері.</li>
+          <li>Швидке попереднє переглядання перед публікацією.</li>
+          <li>Розумні теги для систематизації матеріалів.</li>
+        </ul>
+        <div class="status-chip">Beta версія</div>
+      </div>
+    </section>
+
+    <section class="composer" id="composer">
+      <div class="composer__header">
+        <div>
+          <p class="eyebrow">Публікація</p>
+          <h2>Напишіть новий пост</h2>
+          <p class="subtitle">Заповніть форму, додайте теги — і миттєво опублікуйте його у стрічку.</p>
+        </div>
+        <div class="chip-set" id="tag-cloud"></div>
+      </div>
+
+      <form id="post-form" class="form">
+        <div class="field">
+          <label for="title">Заголовок</label>
+          <input id="title" name="title" type="text" placeholder="Наприклад: Як безпечно зберігати seed-фрази" required />
+        </div>
+
+        <div class="field-grid">
+          <div class="field">
+            <label for="author">Автор</label>
+            <input id="author" name="author" type="text" placeholder="Ваше ім'я або нік" />
+          </div>
+          <div class="field">
+            <label for="tags">Теги</label>
+            <input id="tags" name="tags" type="text" placeholder="Напр.: безпека, defi" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="content">Текст</label>
+          <textarea id="content" name="content" rows="6" placeholder="Розкажіть свою історію..." required></textarea>
+          <div class="hint" id="char-count">0 символів</div>
+        </div>
+
+        <div class="form__actions">
+          <button type="button" class="ghost" id="reset-btn">Очистити</button>
+          <button type="submit" class="primary">Опублікувати</button>
+        </div>
+      </form>
+
+      <div class="preview" id="preview">
+        <p class="eyebrow">Попередній перегляд</p>
+        <h3 id="preview-title">Ще без назви</h3>
+        <div class="meta">
+          <span id="preview-author">Автор: Гість</span>
+          <span id="preview-date"></span>
+        </div>
+        <p id="preview-content">Почніть вводити текст, щоб побачити, як виглядатиме ваша публікація.</p>
+        <div class="tags" id="preview-tags"></div>
+      </div>
+    </section>
+
+    <section class="toolbar" aria-label="Пошук та сортування постів">
+      <div class="search">
+        <input id="search" type="search" placeholder="Пошук за заголовком або тегом" />
+      </div>
+      <div class="filters">
+        <button class="ghost" id="sort-btn" type="button">Спочатку нові</button>
+        <button class="ghost" id="clear-btn" type="button">Скинути фільтри</button>
+      </div>
+    </section>
+
+    <section class="posts" id="posts" aria-live="polite">
+      <!-- Cards render here via script.js -->
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Open Ledger • Блог для спільноти блокчейну</p>
+    <p class="subtitle">Зберігаємо ваші пости локально. Ви контролюєте свої історії.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
